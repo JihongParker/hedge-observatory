@@ -18,5 +18,5 @@ Stage 1·2 ← 13-Papers/python/04_esg (opendart_pipeline, derivative_parser, no
 감시 ← ~/bin/intern-watch.py + launchd 패턴 (라벨 접두 `16-`)
 배포 ← Hong_ERP gh-pages 방식
 
-## 상태 (2026-09-04)
-골격 생성: 파이프라인 스켈레톤(NotImplementedError 단계), 사이트 빌드 통과, Coverage 모듈이 파일럿 14사 실측 표시. 다음: Stage 2 표 유형 분류기 설계.
+## 상태 (2026-09-07)
+v0 배포 완료 — 라이브 https://jihongparker.github.io/hedge-observatory/ · 리포 github.com/JihongParker/hedge-observatory (main=소스, gh-pages=dist). 모듈: Coverage(파일럿 실측)·Pipeline(4단계 상태)·KSSB(추적 타임라인). 파이프라인은 스켈레톤. 다음: Stage 2 표 유형 분류기 설계.

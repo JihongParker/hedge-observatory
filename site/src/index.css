@@ -1,31 +1,53 @@
-/* Hong_ERP 디자인 시스템 이식 — 토큰 이름 동일, 악센트만 관측소 색(심청)으로. */
+/* 야간 관측실 — 다크 퍼스트. 밤이 기본, 라이트는 주간 근무조. */
 :root {
-  --bg: #f6f7f5;
-  --panel: #ffffff;
-  --text: #1a1a1a;
-  --muted: #6b6b6b;
-  --line: #e4e4e0;
-  --accent: #104281; /* observatory deep blue */
-  --accent-soft: #e8eef7;
+  --bg: #0a0e1a;
+  --bg-deep: #060912;
+  --panel: #121a2b;
+  --panel-glass: rgba(18, 26, 43, 0.72);
+  --text: #e8ecf4;
+  --muted: #8b94a8;
+  --line: #223048;
+  --line-soft: #1a2438;
+  --accent: #5da9ff;       /* 빔 */
+  --accent-soft: rgba(93, 169, 255, 0.12);
+  --warm: #ffb454;         /* 지금·경보 */
+  --good: #34d399;
 
-  --dur-xs: 100ms; --dur-s: 160ms; --dur-m: 240ms;
+  --dur-xs: 100ms; --dur-s: 160ms; --dur-m: 240ms; --dur-l: 480ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.05);
+  --shadow-raised: 0 1px 0 rgba(255,255,255,0.04) inset, 0 8px 24px -16px rgba(0,0,0,0.8);
+  --shadow-float: 0 16px 44px -18px rgba(0, 0, 0, 0.85);
+
+  --serif: 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
+  --sans: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+  --mono-f: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
 
   --fs-caption: 11px; --fs-label: 12.5px; --fs-body: 14px;
-  --fs-lede: 17px; --fs-h3: 21px; --fs-h2: 26px; --fs-stat: 30px;
-  color-scheme: light dark;
+  --fs-lede: 17px; --fs-h3: 21px; --fs-h2: 25px; --fs-stat: 32px;
+  color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --bg: #131318; --panel: #1e1e24; --text: #ececec; --muted: #9a9aa2;
-    --line: #2c2c33; --accent: #86b6ef; --accent-soft: #1c2836;
-    --shadow-raised: 0 2px 6px rgb(0 0 0 / 0.35);
+    --bg: #f2f4f8; --bg-deep: #e8ecf3; --panel: #ffffff; --panel-glass: rgba(255,255,255,0.82);
+    --text: #101828; --muted: #5d6675; --line: #d8dee8; --line-soft: #e4e9f1;
+    --accent: #1d5fd0; --accent-soft: rgba(29, 95, 208, 0.09);
+    --warm: #b96e00; --good: #067647;
+    --shadow-raised: 0 1px 2px rgba(16, 24, 40, 0.06);
+    --shadow-float: 0 14px 36px -16px rgba(16, 24, 40, 0.28);
+    color-scheme: light;
   }
 }
 * { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
-  font-family: 'Pretendard', 'Apple SD Gothic Neo', -apple-system, 'Segoe UI', sans-serif;
-  background: var(--bg); color: var(--text); font-size: var(--fs-body); line-height: 1.55;
+  font-family: var(--sans);
+  background: var(--bg); color: var(--text);
+  font-size: var(--fs-body); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-.mono { font-family: 'SF Mono', Menlo, monospace; font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--mono-f); font-variant-numeric: tabular-nums; }
+h1, h2 { font-family: var(--serif); letter-spacing: -0.01em; text-wrap: balance; }
+button { font-family: var(--sans); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+::selection { background: var(--accent-soft); }

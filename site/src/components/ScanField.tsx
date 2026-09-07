@@ -21,7 +21,8 @@ export default function ScanField({ onSwept }: { onSwept?: (n: number) => void }
     let s = 20260907
     const rnd = () => ((s = (s * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff)
     const pts = Array.from({ length: N }, (_, i) => ({
-      x: rnd(), y: rnd(), r: 0.6 + rnd() * 1.1, pilot: i % Math.floor(N / PILOT) === 3,
+      x: rnd(), y: rnd(), r: 0.6 + rnd() * 1.1, ph: rnd() * Math.PI * 2,
+      pilot: i % Math.floor(N / PILOT) === 3,
     }))
     const css = () => getComputedStyle(document.body)
     let accent = '#104281', muted = '#9a9aa2'
@@ -46,18 +47,23 @@ export default function ScanField({ onSwept }: { onSwept?: (n: number) => void }
       const beam = reduced ? 0.72 : ((t % PERIOD) / PERIOD) // 0..1 스캔 위치
       ctx.clearRect(0, 0, W, H)
       let swept = 0
+      const tw = t / 1000
       for (const p of pts) {
         const x = p.x * W, y = p.y * H
         const d = beam - p.x
-        let a = 0.16, r = p.r, col = muted
-        if (p.pilot && d > 0) { a = 0.95; r = p.r + 1.2; col = accent }
-        else if (d > 0 && d < 0.06) { a = 0.85 - (d / 0.06) * 0.55; r = p.r + 0.8; col = accent }
-        else if (d >= 0.06) { a = 0.34; col = accent }
+        const twinkle = reduced ? 1 : 0.85 + 0.15 * Math.sin(tw * 1.7 + p.ph)
+        let a = 0.15 * twinkle, r = p.r, col = muted, glow = 0
+        if (p.pilot && d > 0) { a = 0.95; r = p.r + 1.3; col = accent; glow = 9 }
+        else if (d > 0 && d < 0.06) { a = 0.9 - (d / 0.06) * 0.55; r = p.r + 0.9; col = accent; glow = 7 }
+        else if (d >= 0.06) { a = 0.3 * twinkle + 0.06; col = accent }
         if (d > 0) swept++
         ctx.globalAlpha = a
         ctx.fillStyle = col
+        ctx.shadowColor = glow ? col : 'transparent'
+        ctx.shadowBlur = glow
         ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill()
       }
+      ctx.shadowBlur = 0
       // 빔 자체 — 가는 수직선 + 앞쪽 그라디언트
       if (!reduced) {
         const bx = beam * W

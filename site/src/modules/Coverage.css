@@ -1,17 +1,24 @@
-.cov h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
-.cov-tag { font-size: var(--fs-caption); color: var(--accent); background: var(--accent-soft);
-  padding: 2px 8px; vertical-align: middle; margin-left: 8px; }
-.cov-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+.cov h2 { font-size: var(--fs-h2); margin-bottom: 16px; }
+.cov-tag { font-family: var(--mono-f); font-size: var(--fs-caption); color: var(--good);
+  border: 1px solid var(--good); border-radius: 999px; padding: 2px 10px;
+  vertical-align: 4px; margin-left: 10px; }
+.cov-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
 @media (max-width: 860px) { .cov-kpis { grid-template-columns: repeat(2, 1fr); } }
-.cov-kpi { background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow-raised);
-  padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.cov-kpi { background: var(--panel-glass); backdrop-filter: blur(6px); border: 1px solid var(--line);
+  border-radius: 4px; box-shadow: var(--shadow-raised); padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 3px; }
 .cov-label { font-size: var(--fs-label); color: var(--muted); }
-.cov-value { font-size: var(--fs-stat); font-weight: 700; }
+.cov-value { font-size: var(--fs-stat); font-weight: 500; color: var(--text);
+  text-shadow: 0 0 26px var(--accent-soft); }
 .cov-sub { font-size: var(--fs-caption); color: var(--muted); }
 .cov-table { width: 100%; border-collapse: collapse; background: var(--panel);
-  border: 1px solid var(--line); }
-.cov-table th { text-align: left; font-size: var(--fs-caption); color: var(--muted);
-  padding: 8px 10px; border-bottom: 1px solid var(--line); font-weight: 500; }
-.cov-table td { padding: 9px 10px; border-bottom: 1px solid var(--line); font-size: var(--fs-body); }
+  border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.cov-table th { text-align: left; font-family: var(--mono-f); font-size: var(--fs-caption);
+  letter-spacing: 0.08em; color: var(--muted); padding: 10px 12px;
+  border-bottom: 1px solid var(--line); font-weight: 500; background: var(--bg-deep); }
+.cov-table td { padding: 11px 12px; border-bottom: 1px solid var(--line-soft); font-size: var(--fs-body); }
+.cov-table tr:last-child td { border-bottom: none; }
+.cov-table tr { transition: background var(--dur-s) var(--ease-out); }
+.cov-table tbody tr:hover { background: var(--accent-soft); }
 .cov-table td.num { text-align: right; }
 .cov-basis { color: var(--muted); font-size: var(--fs-caption); }

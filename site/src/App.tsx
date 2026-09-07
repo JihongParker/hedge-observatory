@@ -1,22 +1,38 @@
+import { useCallback, useState } from 'react'
+import ScanField from './components/ScanField'
 import Coverage from './modules/Coverage'
+import Evidence from './modules/Evidence'
 import Pipeline from './modules/Pipeline'
 import Kssb from './modules/Kssb'
 import './App.css'
 
 export default function App() {
+  const [swept, setSwept] = useState(0)
+  const onSwept = useCallback((n: number) => setSwept((prev) => (Math.abs(n - prev) > 15 || n === 0 || n === 2391 ? n : prev)), [])
   return (
     <div className="shell">
-      <header className="hdr">
-        <div>
-          <div className="hdr-eyebrow mono">KOREAN CORPORATE HEDGING OBSERVATORY</div>
+      <header className="hero">
+        <ScanField onSwept={onSwept} />
+        <div className="hero-copy">
+          <div className="hero-eyebrow mono">KOREAN CORPORATE HEDGING OBSERVATORY</div>
           <h1>헤지 관측소</h1>
-          <p className="hdr-scope">
-            상장사 파생상품 각주를 판별·파싱·정규화해 만드는 공개 기업 헤지 패널.
-            파이프라인은 배치 1회 실행이고, 이 사이트는 정적 산출물만 읽는다.
+          <p className="hero-scope">
+            상장사 2,391곳의 파생상품 각주를 판별·파싱·정규화해 만드는 공개 기업 헤지 패널.
+            뒤의 점 하나가 기업 하나이고, 빔이 지나가는 것이 배치 파싱이다 —
+            실제 파이프라인도 이렇게 한 번 훑고, 사이트는 그 산출물만 읽는다.
           </p>
+          <div className="hero-meters mono" aria-live="off">
+            <span><b>{swept.toLocaleString()}</b> / 2,391 스캔</span>
+            <span><b>14</b> 파일럿 완료</span>
+            <span><b>380 × 9</b> 기존 패널</span>
+          </div>
+          <div className="hero-links">
+            <a href="https://github.com/JihongParker/hedge-observatory">github</a>
+            <a href="https://github.com/JihongParker/wti-fx-hedge-program">모태 연구 (P1–P4)</a>
+          </div>
         </div>
-        <span className="hdr-build mono">prototype v0</span>
       </header>
+      <Evidence />
       <Coverage />
       <Pipeline />
       <Kssb />

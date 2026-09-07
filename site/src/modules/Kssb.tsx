@@ -13,6 +13,7 @@ export default function Kssb() {
       <h2>KSSB 추적</h2>
       <p className="ks-sub">관측소가 가동 중이면 기후공시 의무의 헤지 반응 검증은 별도 프로젝트가 아니라 조회 한 번이 된다.</p>
       <div className="ks-strip">
+        <span className="ks-now mono">지금 · 2026</span>
         {STEPS.map((s) => (
           <div key={s.yr} className={s.hot ? 'ks-box hot' : 'ks-box'}>
             <span className="ks-yr mono">{s.yr}</span>

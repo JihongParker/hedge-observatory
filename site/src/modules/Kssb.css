@@ -8,3 +8,7 @@
 .ks-box.hot { background: var(--panel); box-shadow: inset 0 2px 0 var(--accent); }
 .ks-yr { font-size: var(--fs-label); color: var(--accent); }
 .ks-what { font-size: var(--fs-label); color: var(--muted); }
+
+.ks-strip { position: relative; }
+.ks-now { position: absolute; top: -9px; left: 4%; font-size: var(--fs-caption);
+  color: var(--accent); background: var(--panel); border: 1px solid var(--accent-soft); padding: 0 6px; }

@@ -1,0 +1,13 @@
+.ev { margin-top: 34px; }
+.ev h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
+.ev-tag { font-size: var(--fs-caption); color: var(--accent); background: var(--accent-soft);
+  padding: 2px 8px; vertical-align: middle; margin-left: 8px; }
+.ev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 860px) { .ev-grid { grid-template-columns: 1fr; } }
+.ev-card { margin: 0; background: var(--panel); border: 1px solid var(--line);
+  box-shadow: var(--shadow-raised); padding: 14px 16px; }
+.ev-card figcaption { font-size: var(--fs-label); color: var(--muted); margin-bottom: 8px; }
+.ev-card svg { width: 100%; height: auto; display: block; }
+.ev-card circle, .ev-card rect { cursor: crosshair; transition: opacity var(--dur-s) var(--ease-out); }
+.ev-tip { position: fixed; z-index: 9; pointer-events: none; background: var(--text); color: var(--bg);
+  font-size: var(--fs-caption); padding: 4px 8px; border-radius: 2px; }

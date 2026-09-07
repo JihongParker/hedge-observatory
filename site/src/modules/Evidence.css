@@ -1,4 +1,4 @@
-.ev { margin-top: 34px; }
+.ev { margin-top: 0; margin-bottom: 30px; }
 .ev h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
 .ev-tag { font-size: var(--fs-caption); color: var(--accent); background: var(--accent-soft);
   padding: 2px 8px; vertical-align: middle; margin-left: 8px; }

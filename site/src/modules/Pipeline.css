@@ -1,4 +1,4 @@
-.pl { margin-top: 30px; }
+.pl { margin-top: 0; margin-bottom: 30px; }
 .pl h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
 .pl-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: var(--panel); }
 @media (max-width: 860px) { .pl-grid { grid-template-columns: 1fr 1fr; } }

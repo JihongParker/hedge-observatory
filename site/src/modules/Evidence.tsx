@@ -23,7 +23,7 @@ export default function Evidence() {
     <section className="ev">
       <h2>관측소가 답하는 질문 <span className="ev-tag">실측</span></h2>
       <div className="ev-grid">
-        <figure className="ev-card">
+        <figure className="ev-card" data-tour="att">
           <figcaption>공시의무 효과 (380사 패널 · CS ATT · 95% CI)</figcaption>
           <svg viewBox="0 0 520 190" role="img" aria-label="네 추정치의 점-구간, 전부 0 포함">
             <line x1={X(0)} y1="10" x2={X(0)} y2="158" stroke="var(--line)" strokeWidth="1.4" />
@@ -44,7 +44,7 @@ export default function Evidence() {
             })}
           </svg>
         </figure>
-        <figure className="ev-card">
+        <figure className="ev-card" data-tour="notes">
           <figcaption>파생 각주 수치표 상태 (파일럿 13사)</figcaption>
           <svg viewBox="0 0 520 190" role="img" aria-label="정합 1, 이질 10, 미소재 2">
             {NOTES.map((r, i) => {

@@ -26,7 +26,7 @@ export default function Coverage() {
         <Kpi label="지정 판독률 (파일럿)" text={`${p.designation_resolved} / ${p.firms}`} sub="각주 결정문 판독" />
         <Kpi label="수치표 즉시 정합" text={`${p.tables_comparable} / ${p.tables_located}`} sub="정규화 계층의 과제" />
       </div>
-      <table className="cov-table">
+      <table className="cov-table" data-tour="firms">
         <thead><tr><th>기업</th><th>총자산(조)</th><th>지정</th><th>수치표</th></tr></thead>
         <tbody>
           {p.rows.map((r) => (

@@ -1,4 +1,4 @@
-.ks { margin-top: 30px; }
+.ks { margin-top: 0; margin-bottom: 30px; }
 .ks h2 { font-size: var(--fs-h2); margin-bottom: 4px; }
 .ks-sub { color: var(--muted); margin-bottom: 12px; max-width: 70ch; }
 .ks-strip { display: flex; border: 1px solid var(--line); background: var(--bg); overflow-x: auto; }

@@ -15,7 +15,7 @@ export default function Kssb() {
       <div className="ks-strip">
         <span className="ks-now mono">지금 · 2026</span>
         {STEPS.map((s) => (
-          <div key={s.yr} className={s.hot ? 'ks-box hot' : 'ks-box'}>
+          <div key={s.yr} className={s.hot ? 'ks-box hot' : 'ks-box'} data-tour={s.hot ? 'window' : undefined}>
             <span className="ks-yr mono">{s.yr}</span>
             <span className="ks-what">{s.what}</span>
           </div>

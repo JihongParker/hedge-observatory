@@ -25,8 +25,8 @@ export default function ScanField({ onSwept }: { onSwept?: (n: number) => void }
       pilot: i % Math.floor(N / PILOT) === 3,
     }))
     const css = () => getComputedStyle(cv)
-    let accent = '#104281', muted = '#9a9aa2'
-    const readTheme = () => { const c = css(); accent = c.getPropertyValue('--accent').trim() || accent; muted = c.getPropertyValue('--muted').trim() || muted }
+    let accent = '#8fb3ff', muted = '#cfd9f2'
+    const readTheme = () => { const c = css(); accent = c.getPropertyValue('--sc-beam').trim() || accent; muted = c.getPropertyValue('--sc-star').trim() || muted }
     readTheme()
     const mq = window.matchMedia('(prefers-color-scheme: dark)')
     mq.addEventListener?.('change', readTheme)

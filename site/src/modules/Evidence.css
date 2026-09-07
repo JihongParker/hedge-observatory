@@ -1,24 +1,34 @@
-.ev { margin-top: 0; margin-bottom: 30px; }
 .ev h2 { font-size: var(--fs-h2); margin-bottom: 16px; }
-.ev-tag { font-family: var(--mono-f); font-size: var(--fs-caption); color: var(--good);
-  border: 1px solid var(--good); border-radius: 999px; padding: 2px 10px;
-  vertical-align: 4px; margin-left: 10px; }
-.ev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 860px) { .ev-grid { grid-template-columns: 1fr; } }
-.ev-card { margin: 0; background: var(--panel-glass); backdrop-filter: blur(6px);
-  border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow-raised);
-  padding: 16px 18px; transition: border-color var(--dur-m) var(--ease-out); }
-.ev-card:hover { border-color: var(--accent); }
-.ev-card figcaption { font-size: var(--fs-label); color: var(--muted); margin-bottom: 10px; }
+.ev-cockpit { display: grid; grid-template-columns: 296px minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 1100px) { .ev-cockpit { grid-template-columns: 1fr; } }
+.ev-rail { position: sticky; top: 20px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--r-card); box-shadow: var(--shadow-raised); padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 8px; }
+.ev-rail dl { margin: 0 0 6px; }
+.ev-rail dt { font-size: var(--fs-label); font-weight: 700; margin-top: 8px; }
+.ev-rail dd { margin: 1px 0 0; font-size: var(--fs-label); color: var(--muted); }
+.ev-body { display: flex; flex-direction: column; gap: 16px; }
+.ev-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.ev-stat { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-card);
+  box-shadow: var(--shadow-raised); padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 3px; }
+.ev-stat-label { font-size: var(--fs-label); color: var(--muted); }
+.ev-stat b { font-size: var(--fs-stat); font-weight: 700; }
+.ev-stat-chip { font-size: var(--fs-caption); color: var(--accent); background: var(--accent-soft);
+  border-radius: var(--r-chip); padding: 2px 9px; align-self: flex-start; }
+.ev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 1250px) { .ev-grid { grid-template-columns: 1fr; } }
+.ev-card { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-card);
+  box-shadow: var(--shadow-raised); padding: 15px 18px;
+  transition: box-shadow var(--dur-m) var(--ease-out); }
+.ev-card:hover { box-shadow: var(--shadow-float); }
+.ev-card figcaption { font-size: var(--fs-label); color: var(--muted); margin-bottom: 8px; }
 .ev-card svg { width: 100%; height: auto; display: block; }
-.ev-card circle, .ev-card rect { cursor: crosshair; transition: opacity var(--dur-s) var(--ease-out); }
-.ev-card circle:hover { filter: drop-shadow(0 0 6px var(--accent)); }
-.ev-tip { position: fixed; z-index: 9; pointer-events: none; background: var(--text); color: var(--bg);
-  font-family: var(--mono-f); font-size: var(--fs-caption); padding: 5px 9px; border-radius: 3px;
-  box-shadow: var(--shadow-float); }
-
-.ev-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 14px; }
-.ev-note { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 16px 18px; }
-.ev-note-k { display: block; color: var(--accent); font-size: var(--fs-lede); margin-bottom: 6px; }
-.ev-note h3 { font-family: var(--serif); font-size: var(--fs-body); margin-bottom: 5px; }
+.ev-card circle, .ev-card rect { cursor: crosshair; }
+.ev-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.ev-note { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-card);
+  box-shadow: var(--shadow-raised); padding: 15px 18px; }
+.ev-note-k { display: block; color: var(--accent); font-size: var(--fs-lede); margin-bottom: 5px; }
+.ev-note h3 { font-size: var(--fs-body); margin-bottom: 4px; }
 .ev-note p { font-size: var(--fs-label); color: var(--muted); }
+.ev-tip { position: fixed; z-index: 9; pointer-events: none; background: var(--text); color: var(--bg);
+  font-size: var(--fs-caption); padding: 5px 9px; border-radius: var(--r-btn); box-shadow: var(--shadow-overlay); }

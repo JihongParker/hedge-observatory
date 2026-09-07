@@ -22,53 +22,53 @@ export default function Coverage() {
   return (
     <section className="cov">
       <div className="src-row">
-        <span className="src-chip">모집단 <b>corpCode.xml</b> — Stage 1 산출</span>
-        <span className="src-chip">지정 판독 <b>결정문 규칙</b> — Stage 2</span>
-        <span className="src-chip">상태 <b>파일럿 14사 실측</b></span>
+        <span className="src-chip">대상 <b>코스피 상장사 전체</b></span>
+        <span className="src-chip">판정 방식 <b>결정 문장 읽기</b></span>
+        <span className="src-chip">현재 <b>시범 14곳 완료</b></span>
       </div>
-      <h2>커버리지</h2>
+      <h2>읽은 범위</h2>
       <div className="cov-cockpit">
         <aside className="cov-rail">
           <span className="sec-label">Filter</span>
           <label className="param-row">
             <span className="param-sym"><span className="sym">A</span><sub>min</sub></span>
-            <span className="param-desc">총자산 하한입니다. 표가 즉시 걸러집니다.</span>
+            <span className="param-desc">회사 크기(총자산)의 하한선입니다. 움직이면 아래 표가 바로 걸러집니다.</span>
             <input type="range" min="0" max="450" step="10" value={minAssets}
               onChange={(e) => setMinAssets(Number(e.target.value))} />
             <span className="param-minmax mono">0 · 450조</span>
             <output className="param-chip mono">{minAssets}조 이상</output>
           </label>
           <button className="param-reset" onClick={() => setMinAssets(0)}>초기화</button>
-          <span className="sec-label">Reading rule</span>
-          <p className="cov-rule">지정 여부는 각주의 결정문에서 읽습니다. S-Oil 보고서에는 위험회피 용어가
-            12회 나오지만 전부 상용구였고, 결정문 한 문장이 비적용을 확정했습니다. 키워드 빈도 분류기는
-            이 기업을 오분류합니다.</p>
+          <span className="sec-label">How we decide</span>
+          <p className="cov-rule">회사가 위험회피 회계를 쓰는지는 보고서의 결정 문장 하나로 판정합니다.
+            S-Oil 보고서에는 위험회피라는 말이 12번 나오지만 전부 상투적 문구였고,
+            "적용하지 않는다"는 한 문장이 결론이었습니다. 단어 개수를 세면 이 회사를 반대로 분류하게 됩니다.</p>
         </aside>
         <div className="cov-body">
           <div className="cov-kpis">
-            <Kpi label="대상 모집단" target={pilot.population_kospi} sub="코스피 상장 심사 통과" />
-            <Kpi label="기존 패널" text={`${pilot.panel_firms} × ${pilot.panel_years}`} sub="기업 × 연도" />
-            <Kpi label="지정 판독률" text={`${p.designation_resolved} / ${p.firms}`} sub="각주 결정문 판독" />
-            <Kpi label="수치표 즉시 정합" text={`${p.tables_comparable} / ${p.tables_located}`} sub="정규화 계층의 과제" />
+            <Kpi label="읽을 대상 회사" target={pilot.population_kospi} sub="코스피 상장 심사 통과" />
+            <Kpi label="이미 읽어 둔 기록" text={`${pilot.panel_firms} × ${pilot.panel_years}`} sub="회사 수 × 연도 수" />
+            <Kpi label="판정 성공" text={`${p.designation_resolved} / ${p.firms}`} sub="결정 문장으로 판정" />
+            <Kpi label="바로 비교 가능한 표" text={`${p.tables_comparable} / ${p.tables_located}`} sub="나머지를 맞추는 것이 본론" />
           </div>
           <div className="cov-tablewrap">
             <table className="cov-table" data-tour="firms">
-              <thead><tr><th>기업</th><th>총자산 FY2023</th><th>지정 판독</th><th>수치표</th></tr></thead>
+              <thead><tr><th>회사</th><th>총자산 (2023)</th><th>위험회피 회계</th><th>숫자표 상태</th></tr></thead>
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.name}>
                     <td>{r.name}</td>
                     <td className="num mono">{r.assets_tn.toFixed(1)}조</td>
                     <td>{r.designation === 'not_applied'
-                      ? <span className="cov-pill on">비적용 · 결정문</span>
-                      : <span className="cov-pill">판독 대기</span>}</td>
-                    <td>{r.table}</td>
+                      ? <span className="cov-pill on">안 씀 · 문장으로 확정</span>
+                      : <span className="cov-pill">판정 대기</span>}</td>
+                    <td>{r.table === '정합' ? '비교 가능' : r.table === '유형 혼재' ? '모양 제각각' : r.table}</td>
                   </tr>
                 ))}
-                {rows.length === 0 && <tr><td colSpan={4} className="cov-empty">해당 구간의 파일럿 기업이 없습니다.</td></tr>}
+                {rows.length === 0 && <tr><td colSpan={4} className="cov-empty">이 크기 구간에는 시범 회사가 없습니다.</td></tr>}
               </tbody>
             </table>
-            <p className="cov-note">파일럿 3사 표시 중 · 전수 파싱이 끝나면 이 표가 2,391행이 됩니다.</p>
+            <p className="cov-note">지금은 시범 3곳만 보입니다. 전체 읽기가 끝나면 이 표가 2,391줄이 됩니다.</p>
           </div>
         </div>
       </div>

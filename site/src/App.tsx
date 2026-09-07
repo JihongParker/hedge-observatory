@@ -9,23 +9,23 @@ import './App.css'
 const GROUPS: { title: string | null; items: { id: string; name: string; desc: string }[] }[] = [
   { title: null, items: [{ id: 'overview', name: '개요', desc: '' }] },
   {
-    title: '관측 층',
+    title: '무엇을 보나',
     items: [
-      { id: 'evidence', name: '실측 근거', desc: '380사 패널 ATT · 파일럿 각주 상태' },
-      { id: 'coverage', name: '커버리지', desc: '모집단 · 판독률 · 기업 화면' },
+      { id: 'evidence', name: '확인된 사실', desc: '공시 의무가 행동을 바꿨는지 380개사로 확인' },
+      { id: 'coverage', name: '읽은 범위', desc: '어디까지 읽었고 무엇을 판정했나' },
     ],
   },
-  { title: '파이프라인 층', items: [{ id: 'pipeline', name: '배치 파이프라인', desc: '수집→판별→정규화→공개' }] },
-  { title: '전방 관측', items: [{ id: 'kssb', name: 'KSSB 추적', desc: 'FY2027 시행 → 2030–31 관측 창' }] },
+  { title: '어떻게 만드나', items: [{ id: 'pipeline', name: '만드는 과정', desc: '모아서 읽고 맞춰서 공개하는 네 걸음' }] },
+  { title: '다음 관측', items: [{ id: 'kssb', name: '기후공시 관측', desc: '2027년 의무화 이후를 지켜봅니다' }] },
 ]
 const ALL = GROUPS.flatMap((g) => g.items)
 
 const TOUR: { module: string; title: string; body: string; target: string }[] = [
-  { module: 'overview', title: '점 하나가 기업 하나', body: '뒤의 점 2,391개가 코스피 심사 모집단입니다. 빔이 지나가는 것이 배치 파싱입니다 — 실제 파이프라인도 이렇게 한 번 훑고, 사이트는 산출물만 읽습니다.', target: '.ov-hero' },
-  { module: 'evidence', title: '먼저 답한 질문', body: '공시의무가 헤지를 움직였는지 380사 패널로 물었습니다. 네 추정치 전부 0을 포함하는 정밀 null입니다. 점 위에 마우스를 올리면 신뢰구간이 나옵니다.', target: '[data-tour="att"]' },
-  { module: 'evidence', title: '왜 관측소가 필요한가', body: '파일럿 13사 중 즉시 정합되는 수치표는 1개뿐입니다. 나머지 10개의 이질 표를 정합으로 끌어올리는 것이 이 프로젝트의 본론입니다.', target: '[data-tour="notes"]' },
-  { module: 'coverage', title: '결정문 판독', body: 'S-Oil 사례입니다. 위험회피 용어 12회는 전부 상용구였고, 결정문 한 문장이 비적용을 확정했습니다. 키워드 빈도가 아니라 문장을 읽어야 합니다.', target: '[data-tour="firms"]' },
-  { module: 'kssb', title: '관측 창', body: '2027년 기후공시가 시행되면 코호트별 헤지 반응 측정은 별도 연구가 아니라 이 패널의 조회 한 번이 됩니다. 창은 2030–31입니다.', target: '[data-tour="window"]' },
+  { module: 'overview', title: '점 하나가 회사 하나', body: '뒤에 뜬 점 2,391개가 읽을 대상 회사들입니다. 지나가는 빛줄기는 컴퓨터가 보고서를 "읽는 중"이라는 표시입니다. 실제 작업도 이렇게 한 번 훑고, 이 사이트는 그 결과만 보여 줍니다.', target: '.ov-hero' },
+  { module: 'evidence', title: '먼저 확인한 사실', body: '공시 의무가 생기면 회사가 위험 대비를 늘릴까요? 380개사의 9년치를 비교했더니 달라진 것이 없었습니다. 가로 막대가 전부 0을 지나는 것이 그 뜻입니다. 점에 마우스를 올리면 수치가 보입니다.', target: '[data-tour="att"]' },
+  { module: 'evidence', title: '왜 이 작업이 필요한가', body: '시범으로 읽은 13곳 중 표를 바로 비교할 수 있는 회사는 1곳뿐이었습니다. 회사마다 표 모양이 달라서입니다. 나머지 10곳을 비교 가능하게 맞추는 것이 이 프로젝트의 본론입니다.', target: '[data-tour="notes"]' },
+  { module: 'coverage', title: '문장 하나로 판정', body: 'S-Oil 보고서에는 위험회피라는 말이 12번 나오지만 전부 상투적 문구였고, "적용하지 않는다"는 문장 하나가 결론이었습니다. 단어 개수가 아니라 문장을 읽어야 하는 이유입니다.', target: '[data-tour="firms"]' },
+  { module: 'kssb', title: '다음 관측', body: '2027년부터 큰 회사들은 기후 정보를 의무로 공시합니다. 의무가 행동을 바꾸는지는 2030–31년에 이 표를 열어 보면 압니다. 별도 연구가 아니라 조회 한 번입니다.', target: '[data-tour="window"]' },
 ]
 
 function Tour({ step, setStep, go }: { step: number; setStep: (n: number | null) => void; go: (id: string) => void }) {
@@ -104,7 +104,7 @@ export default function App() {
           <button className="sb-tour" onClick={() => setTour(0)}>둘러보기 시작</button>
         </div>
         <div className="sb-strip">
-          <span className="sb-live"><i /> 파일럿 14사 적재</span>
+          <span className="sb-live"><i /> 시범 14곳 읽음</span>
           <span className="mono">panel v0 · 2026-09</span>
         </div>
       </nav>
@@ -115,7 +115,7 @@ export default function App() {
         {active === 'pipeline' && <Pipeline />}
         {active === 'kssb' && <Kssb />}
         {active !== 'overview' && (
-          <footer className="ftr">표시된 값은 전부 OpenDART 라이브 파일럿(14사)과 380사 패널 실측입니다. 예시 목업 값은 넣지 않습니다.</footer>
+          <footer className="ftr">이 화면의 숫자는 전부 실제 공시에서 읽어 낸 값입니다. 지어낸 예시는 없습니다.</footer>
         )}
       </main>
       {tour !== null && <div className="tour-dim" />}

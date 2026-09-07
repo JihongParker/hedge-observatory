@@ -1,15 +1,16 @@
-.flow { display: flex; align-items: stretch; gap: 0; position: relative;
-  padding-bottom: 34px; overflow-x: auto; }
+.flow-scroll { overflow-x: auto; }
+.flow { display: flex; align-items: stretch; position: relative;
+  padding-bottom: 34px; min-width: 1040px; }
 .flow-seg { display: flex; align-items: center; flex: 1; min-width: 0; }
 .flow-node { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-card);
-  box-shadow: var(--shadow-raised); padding: 12px 16px; min-width: 118px;
-  display: flex; flex-direction: column; gap: 1px; }
+  box-shadow: var(--shadow-raised); padding: 12px 16px; width: 158px; flex: none;
+  display: flex; flex-direction: column; gap: 2px; }
 .flow-t { font-size: var(--fs-body); font-weight: 700; }
 .flow-d { font-size: var(--fs-caption); color: var(--muted); }
-.flow-edge { flex: 1; min-width: 56px; display: flex; flex-direction: column; align-items: center;
-  gap: 2px; color: var(--muted); padding: 0 6px; }
+.flow-edge { flex: 1; min-width: 76px; display: flex; flex-direction: column; align-items: center;
+  gap: 2px; color: var(--muted); padding: 0 8px; }
 .flow-var { font-size: var(--fs-caption); color: var(--muted); white-space: nowrap; }
-.flow-edge svg { width: 100%; max-width: 74px; height: 10px; }
+.flow-edge svg { width: 100%; max-width: 74px; height: 10px; flex: none; }
 .flow-return { position: absolute; left: 0; right: 0; bottom: 8px; width: 100%; height: 26px;
   color: var(--muted); }
 .flow-return-label { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);

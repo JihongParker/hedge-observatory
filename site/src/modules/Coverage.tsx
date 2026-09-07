@@ -61,6 +61,8 @@ export default function Coverage() {
                     <td className="num mono">{r.assets_tn.toFixed(1)}조</td>
                     <td>{r.designation === 'not_applied'
                       ? <span className="cov-pill on">안 씀 · 문장으로 확정</span>
+                      : r.designation === 'applied'
+                      ? <span className="cov-pill on">씀 · 문장으로 확정</span>
                       : <span className="cov-pill">판정 대기</span>}</td>
                     <td>{r.table === '정합' ? '비교 가능' : r.table === '유형 혼재' ? '모양 제각각' : r.table}</td>
                   </tr>

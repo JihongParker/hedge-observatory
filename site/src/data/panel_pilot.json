@@ -1,14 +1,39 @@
 {
-  "as_of": "2026-09-04",
-  "population_kospi": 2391,
-  "panel_firms": 380, "panel_years": 9,
-  "pilot": {
-    "firms": 14, "designation_resolved": 10, "applied": 6, "not_applied": 4,
-    "tables_located": 13, "tables_comparable": 1, "tables_heterogeneous": 10, "tables_missing": 2,
-    "rows": [
-      { "name": "S-Oil", "assets_tn": 21.6, "designation": "not_applied", "designation_basis": "결정문 판독·수작업 대조", "table": "정합" },
-      { "name": "POSCO홀딩스", "assets_tn": 101.0, "designation": null, "designation_basis": "판독 대기", "table": "유형 혼재" },
-      { "name": "삼성전자", "assets_tn": 456.0, "designation": null, "designation_basis": "판독 대기", "table": "유형 혼재" }
-    ]
-  }
+ "as_of": "2026-09-04",
+ "population_kospi": 2391,
+ "panel_firms": 380,
+ "panel_years": 9,
+ "pilot": {
+  "firms": 14,
+  "designation_resolved": 10,
+  "applied": 6,
+  "not_applied": 4,
+  "tables_located": 13,
+  "tables_comparable": 1,
+  "tables_heterogeneous": 10,
+  "tables_missing": 2,
+  "rows": [
+   {
+    "name": "S-Oil",
+    "assets_tn": 21.6,
+    "designation": "not_applied",
+    "designation_basis": "결정문 판독·수작업 대조",
+    "table": "정합"
+   },
+   {
+    "name": "POSCO홀딩스",
+    "assets_tn": 101.0,
+    "designation": null,
+    "designation_basis": "판독 대기",
+    "table": "유형 혼재"
+   },
+   {
+    "name": "삼성전자",
+    "assets_tn": 456.0,
+    "designation": "applied",
+    "designation_basis": "결정문 판독 · 2026-09-07 라이브 (FY2025 보고서)",
+    "table": "유형 혼재"
+   }
+  ]
+ }
 }

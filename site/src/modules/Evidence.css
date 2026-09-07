@@ -16,3 +16,9 @@
 .ev-tip { position: fixed; z-index: 9; pointer-events: none; background: var(--text); color: var(--bg);
   font-family: var(--mono-f); font-size: var(--fs-caption); padding: 5px 9px; border-radius: 3px;
   box-shadow: var(--shadow-float); }
+
+.ev-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 14px; }
+.ev-note { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 16px 18px; }
+.ev-note-k { display: block; color: var(--accent); font-size: var(--fs-lede); margin-bottom: 6px; }
+.ev-note h3 { font-family: var(--serif); font-size: var(--fs-body); margin-bottom: 5px; }
+.ev-note p { font-size: var(--fs-label); color: var(--muted); }

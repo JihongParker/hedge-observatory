@@ -22,3 +22,14 @@
   animation: pl-flow 6s linear infinite; }
 @keyframes pl-flow { from { left: 0; opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } to { left: calc(100% - 7px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .pl-grid::after { animation: none; display: none; } }
+
+.pl-band { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+@media (max-width: 860px) { .pl-band { grid-template-columns: 1fr; } }
+.pl-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 18px 20px; }
+.pl-panel h3 { font-family: var(--serif); font-size: var(--fs-lede); margin-bottom: 8px; }
+.pl-panel p { font-size: var(--fs-label); color: var(--muted); margin-bottom: 12px; }
+.pl-panel ul { list-style: none; padding: 0; display: flex; flex-direction: column; }
+.pl-panel li { display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-label);
+  padding: 7px 2px; border-top: 1px solid var(--line-soft); }
+.pl-panel li:first-child { border-top: none; }
+.pl-panel li span { color: var(--muted); font-family: var(--sans); }

@@ -63,6 +63,23 @@ export default function Evidence() {
           </svg>
         </figure>
       </div>
+      <div className="ev-notes">
+        <div className="ev-note">
+          <span className="ev-note-k mono">+1.3 ~ +6.0pp</span>
+          <h3>경쟁 채널의 상한</h3>
+          <p>현저성·거버넌스·순응비용 채널이 예측하는 양(+)의 반응을 신뢰구간 상한이 이 범위로 기각한다. null은 공백이 아니라 측정이다.</p>
+        </div>
+        <div className="ev-note">
+          <span className="ev-note-k mono">MDE 9.0–9.2pp</span>
+          <h3>검정력을 명시</h3>
+          <p>부트스트랩 표준오차 3.2–3.3pp에서 80% 검정력 최소검출효과. 검정력을 암묵에 두지 않고 수치로 보고한다.</p>
+        </div>
+        <div className="ev-note">
+          <span className="ev-note-k mono">비교집단 3규칙</span>
+          <h3>규칙에 안 기댄 결과</h3>
+          <p>전체 미처리·인접 코호트·문턱 인근 — 세 규칙 모두에서 부호와 크기가 안정. 위약 검정은 실제로 인코딩 버그(가짜 +24pp)를 적발했다.</p>
+        </div>
+      </div>
       {tip && <div className="ev-tip mono" style={{ left: tip.x + 12, top: tip.y - 32 }}>{tip.t}</div>}
     </section>
   )

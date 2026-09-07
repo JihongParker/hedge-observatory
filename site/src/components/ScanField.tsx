@@ -24,7 +24,7 @@ export default function ScanField({ onSwept }: { onSwept?: (n: number) => void }
       x: rnd(), y: rnd(), r: 0.6 + rnd() * 1.1, ph: rnd() * Math.PI * 2,
       pilot: i % Math.floor(N / PILOT) === 3,
     }))
-    const css = () => getComputedStyle(document.body)
+    const css = () => getComputedStyle(cv)
     let accent = '#104281', muted = '#9a9aa2'
     const readTheme = () => { const c = css(); accent = c.getPropertyValue('--accent').trim() || accent; muted = c.getPropertyValue('--muted').trim() || muted }
     readTheme()
@@ -52,10 +52,10 @@ export default function ScanField({ onSwept }: { onSwept?: (n: number) => void }
         const x = p.x * W, y = p.y * H
         const d = beam - p.x
         const twinkle = reduced ? 1 : 0.85 + 0.15 * Math.sin(tw * 1.7 + p.ph)
-        let a = 0.15 * twinkle, r = p.r, col = muted, glow = 0
+        let a = 0.42 * twinkle, r = p.r, col = muted, glow = 0
         if (p.pilot && d > 0) { a = 0.95; r = p.r + 1.3; col = accent; glow = 9 }
         else if (d > 0 && d < 0.06) { a = 0.9 - (d / 0.06) * 0.55; r = p.r + 0.9; col = accent; glow = 7 }
-        else if (d >= 0.06) { a = 0.3 * twinkle + 0.06; col = accent }
+        else if (d >= 0.06) { a = 0.5 * twinkle + 0.1; col = accent }
         if (d > 0) swept++
         ctx.globalAlpha = a
         ctx.fillStyle = col

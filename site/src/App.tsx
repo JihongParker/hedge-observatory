@@ -82,7 +82,7 @@ function Overview({ startTour, go }: { startTour: () => void; go: (id: string) =
           <h1>헤지 관측소</h1>
           <p className="hero-scope">
             상장사 2,391곳의 파생상품 각주를 판별·파싱·정규화해 만드는 공개 기업 헤지 패널.
-            뒤의 점 하나가 기업 하나, 빔이 배치 파싱이다.
+            점 하나가 기업 하나, 빔이 배치 파싱이다.
           </p>
           <div className="hero-meters mono"><span><b>{swept.toLocaleString()}</b> / 2,391 스캔</span>
             <span><b>14</b> 파일럿 완료</span><span><b>380 × 9</b> 기존 패널</span></div>
@@ -92,19 +92,47 @@ function Overview({ startTour, go }: { startTour: () => void; go: (id: string) =
           </div>
         </div>
       </header>
-      <div className="ov-cards">
-        {ALL.filter((m) => m.id !== 'overview').map((m) => (
-          <button key={m.id} className="ov-card" onClick={() => go(m.id)}>
-            <span className="ov-name">{m.name}</span>
-            <span className="ov-desc">{m.desc}</span>
-            <span className="ov-go mono">열기 →</span>
-          </button>
-        ))}
+      <div className="ov-strip">
+        <div className="ov-kpi"><b>2,391</b><span>대상 모집단 · 코스피 심사 통과</span><em>실측</em></div>
+        <div className="ov-kpi"><b>3,420</b><span>기존 패널 기업-연도 (380 × 9)</span><em>실측</em></div>
+        <div className="ov-kpi"><b>10 / 14</b><span>파일럿 지정 판독 성공</span><em>실측</em></div>
+        <div className="ov-kpi"><b>1 / 13</b><span>수치표 즉시 정합 — 이 격차가 본론</span><em>실측</em></div>
       </div>
-      <div className="hero-links">
-        <a href="https://github.com/JihongParker/hedge-observatory">github</a>
-        <a href="https://github.com/JihongParker/wti-fx-hedge-program">모태 연구 (P1–P4)</a>
-        <a href="https://jihongparker.github.io/hong-erp/">Hong ERP</a>
+      <div className="ov-cards">
+        {[
+          { id: 'evidence', stat: 'ATT −0.5pp [−6.8, +6.0] · 정밀 null' },
+          { id: 'coverage', stat: 'S-Oil 결정문 판독 · 수작업 대조' },
+          { id: 'pipeline', stat: '2/4 단계 기구축 · 배치 1회 파싱' },
+          { id: 'kssb', stat: '관측 창 2030–31 · 1단계 10조+' },
+        ].map(({ id, stat }) => {
+          const m = ALL.find((x) => x.id === id)!
+          return (
+            <button key={m.id} className="ov-card" onClick={() => go(m.id)}>
+              <span className="ov-name">{m.name}</span>
+              <span className="ov-desc">{m.desc}</span>
+              <span className="ov-stat">{stat}</span>
+              <span className="ov-go mono">열기 →</span>
+            </button>
+          )
+        })}
+      </div>
+      <div className="ov-band">
+        <div className="ov-log">
+          <h3>관측 일지</h3>
+          <ol>
+            <li><time>2026-09-07</time><p><b>관측소 v0 공개.</b> 파이프라인 골격과 파일럿 실측 화면을 배포했다.</p></li>
+            <li><time>2026-09-04</time><p><b>보안 정비.</b> 수집 키를 코드 밖으로 옮기고 리포 히스토리를 정리했다.</p></li>
+            <li><time>2026-09-02</time><p><b>모태 연구 전체 재검증.</b> 380사 패널 추정과 4편 엔진을 소스에서 재실행해 전 수치 재현을 확인했다.</p></li>
+            <li><time>2026-08-24</time><p><b>파일럿 14사 판독.</b> 지정 10/14 판독, 수치표 즉시 정합 1/13 — 정규화 계층의 과제를 실측으로 확정했다.</p></li>
+          </ol>
+        </div>
+        <div className="ov-kin">
+          <h3>계보</h3>
+          <a href="https://github.com/JihongParker/wti-fx-hedge-program">모태 연구 P1–P4 <span>WTI × USD/KRW 4편</span></a>
+          <a href="https://jihongparker.github.io/hong-erp/">Hong ERP <span>의사결정-층 프로토타입</span></a>
+          <a href="https://github.com/JihongParker/hedge-observatory">이 사이트의 소스 <span>github</span></a>
+          <div className="ov-kin-note">파이프라인은 배치 1회 실행 — 이 사이트는 정적 산출물만 읽는다 (로드당 토큰 0).</div>
+        </div>
       </div>
     </div>
   )

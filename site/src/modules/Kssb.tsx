@@ -21,6 +21,18 @@ export default function Kssb() {
           </div>
         ))}
       </div>
+      <div className="ks-cohorts">
+        <h3>코호트 구조 (2026-07-08 최종안)</h3>
+        <table>
+          <thead><tr><th>시행</th><th>대상</th><th>공시 개시</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td className="mono">FY2027</td><td>연결자산 10조 이상 코스피</td><td className="mono">2028</td><td>약 50–60사 — 가장 얇은 비교집단</td></tr>
+            <tr><td className="mono">FY2028</td><td>5조 이상 확대</td><td className="mono">2029</td><td>2조 이상은 검토 단계</td></tr>
+            <tr><td className="mono">2030</td><td>제3자 인증 · 면책 종료</td><td className="mono">—</td><td>자본시장법 사업보고서 법정공시</td></tr>
+          </tbody>
+        </table>
+        <p className="ks-note">단계 시행이라 헤지 반응은 2030–31 창에 집중될 것으로 예고되어 있다. 관측소가 가동 중이면 이 창의 측정은 조회 한 번이다.</p>
+      </div>
     </section>
   )
 }

@@ -1,3 +1,4 @@
+import panel from '../data/panel.json'
 import ScanField from '../components/ScanField'
 import FlowDiagram from '../components/FlowDiagram'
 import Carousel from '../components/Carousel'
@@ -39,7 +40,7 @@ export default function Overview({ go, startTour }: { go: (id: string) => void; 
         <div className="ov-cards">
           {[
             { id: 'evidence', name: '확인된 사실', desc: '공시 의무가 생기면 회사가 위험 대비를 늘릴까요? 380개사의 9년치를 비교했더니, 달라진 것이 없었습니다.', stat: '변화 ±6%p 안 — 정밀한 무변화' },
-            { id: 'coverage', name: '읽은 범위', desc: '지금까지 14곳을 시범으로 읽었습니다. 위험회피 회계를 쓰는지는 문서의 결정 문장 하나로 판정합니다.', stat: '판정 성공 10 / 14' },
+            { id: 'coverage', name: '읽은 범위', desc: `${panel.n}곳의 최신 사업보고서를 읽었습니다. 위험회피 회계를 쓰는지는 문서의 결정 문장 하나로 판정합니다.`, stat: `판정 성공 ${panel.agg.applied + panel.agg.not_applied} / ${panel.n}` },
             { id: 'pipeline', name: '만드는 과정', desc: '1년에 한 번 보고서를 읽어 표를 갱신합니다. 사람 손은 검수에만 듭니다.', stat: '4단계 중 2단계 완성' },
             { id: 'kssb', name: '기후공시 관측', desc: '2027년부터 큰 회사들은 기후 정보를 의무로 공시합니다. 그때 행동이 정말 바뀌는지 이 표로 지켜봅니다.', stat: '관측 시점 2030–31' },
           ].map((m) => (
@@ -57,9 +58,9 @@ export default function Overview({ go, startTour }: { go: (id: string) => void; 
         <h2>지금까지의 숫자</h2>
         <div className="ov-proof">
           <div className="ov-proof-item"><b className="mono">2,391</b><span>읽을 대상 회사 (코스피 상장 심사 통과)</span></div>
-          <div className="ov-proof-item"><b className="mono">3,420</b><span>이미 읽어 둔 기록 (380개사 × 9년)</span></div>
-          <div className="ov-proof-item"><b className="mono">10 / 14</b><span>시범 판정 성공</span></div>
-          <div className="ov-proof-item"><b className="mono">1 / 13</b><span>표끼리 바로 비교되는 회사 — 그래서 이 작업이 필요합니다</span></div>
+          <div className="ov-proof-item"><b className="mono">{panel.n.toLocaleString()}</b><span>최신 사업보고서를 읽은 회사 ({panel.as_of} 배치)</span></div>
+          <div className="ov-proof-item"><b className="mono">{panel.agg.applied + panel.agg.not_applied} / {panel.n}</b><span>결정 문장으로 판정 성공</span></div>
+          <div className="ov-proof-item"><b className="mono">{panel.tables.comparable} / {panel.n}</b><span>표끼리 바로 비교되는 회사 — 나머지를 맞추는 것이 본론입니다</span></div>
         </div>
       </section>
 

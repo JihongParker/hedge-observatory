@@ -1,0 +1,12 @@
+.pl { margin-top: 30px; }
+.pl h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
+.pl-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: var(--panel); }
+@media (max-width: 860px) { .pl-grid { grid-template-columns: 1fr 1fr; } }
+.pl-stage { padding: 14px 16px; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.pl-stage:first-child { border-left: none; }
+.pl-no { font-size: var(--fs-caption); color: var(--muted); }
+.pl-stage h3 { font-size: var(--fs-body); }
+.pl-stage p { font-size: var(--fs-label); color: var(--muted); flex: 1; }
+.pl-chip { align-self: flex-start; font-size: var(--fs-caption); padding: 2px 8px; border: 1px solid var(--line); }
+.pl-chip.done { color: var(--accent); background: var(--accent-soft); }
+.pl-chip.new { color: var(--muted); }

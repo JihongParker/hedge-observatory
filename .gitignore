@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.env
+**/opendart_key*
+*.log

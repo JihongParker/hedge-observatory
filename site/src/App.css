@@ -1,0 +1,10 @@
+.shell { max-width: 1080px; margin: 0 auto; padding: 28px 24px 60px; }
+.hdr { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+  border-bottom: 2px solid var(--text); padding-bottom: 16px; margin-bottom: 22px; }
+.hdr-eyebrow { font-size: var(--fs-caption); letter-spacing: 0.14em; color: var(--muted); }
+.hdr h1 { font-size: var(--fs-h2); margin: 4px 0 6px; }
+.hdr-scope { color: var(--muted); max-width: 62ch; }
+.hdr-build { font-size: var(--fs-caption); color: var(--muted); border: 1px solid var(--line);
+  background: var(--panel); padding: 5px 9px; white-space: nowrap; }
+.ftr { margin-top: 30px; padding-top: 12px; border-top: 1px solid var(--line);
+  font-size: var(--fs-caption); color: var(--muted); max-width: 78ch; }

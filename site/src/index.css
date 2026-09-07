@@ -1,0 +1,31 @@
+/* Hong_ERP 디자인 시스템 이식 — 토큰 이름 동일, 악센트만 관측소 색(심청)으로. */
+:root {
+  --bg: #f6f7f5;
+  --panel: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --line: #e4e4e0;
+  --accent: #104281; /* observatory deep blue */
+  --accent-soft: #e8eef7;
+
+  --dur-xs: 100ms; --dur-s: 160ms; --dur-m: 240ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.05);
+
+  --fs-caption: 11px; --fs-label: 12.5px; --fs-body: 14px;
+  --fs-lede: 17px; --fs-h3: 21px; --fs-h2: 26px; --fs-stat: 30px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131318; --panel: #1e1e24; --text: #ececec; --muted: #9a9aa2;
+    --line: #2c2c33; --accent: #86b6ef; --accent-soft: #1c2836;
+    --shadow-raised: 0 2px 6px rgb(0 0 0 / 0.35);
+  }
+}
+* { box-sizing: border-box; margin: 0; }
+body {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg); color: var(--text); font-size: var(--fs-body); line-height: 1.55;
+}
+.mono { font-family: 'SF Mono', Menlo, monospace; font-variant-numeric: tabular-nums; }

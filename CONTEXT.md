@@ -18,5 +18,5 @@ Stage 1·2 ← 12-Portfolio/papers/python/04_esg (opendart_pipeline, derivative_
 감시 ← ~/bin/intern-watch.py + launchd 패턴 (라벨 접두 `16-`)
 배포 ← Hong_ERP gh-pages 방식
 
-## 상태 (2026-09-07)
-v0 배포 완료 — 라이브 https://jihongparker.github.io/hedge-observatory/ · 리포 github.com/JihongParker/hedge-observatory (main=소스, gh-pages=dist). 모듈: Coverage(파일럿 실측)·Pipeline(4단계 상태)·KSSB(추적 타임라인). 파이프라인은 스켈레톤. 다음: Stage 2 표 유형 분류기 설계.
+## 상태 (2026-09-07 야간)
+실배치 1회전 완료 — 380사 FY2025 사업보고서 라이브 판독: 적용 278·비적용 13·미판정 74·오류 15, 표 상태(비교 가능 11·단위 확인 47·이질 51·표 없음 256). 2024 패널과 교차 대조 일치 98.8%(163/165). 파이프라인 이식 완료(reader.py·run_batch.py·finalize.py, 재개 안전). 사이트가 panel.json 380행을 소비(검색·자산 필터). 다음: 미판정 74곳 규칙 보강(Stage 2 v2), 코스피 전수 확대, 명목금액 정규화(Stage 3 v2).

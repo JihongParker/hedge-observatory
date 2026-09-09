@@ -6,7 +6,6 @@ papers P4의 자인된 공백(강도 마진, 각주 이질성 13사 중 1사 정
 ## 구조
 - `pipeline/observatory_pipeline.py` — 4단계 배치(수집→판별→정규화→공개). LLM은 Stage 2 모호 건에만, 배치 1회. 사이트는 정적 panel.json만 읽음(로드당 토큰 0).
 - `site/` — Vite+React+TS, Hong_ERP 디자인 시스템 이식(토큰 동일, 악센트 심청 #104281). 실측만 표시, 예시 목업은 화면 아키타입(아티팩트)에만.
-- 완성형 화면 아키타입: claude.ai/code/artifact/b2c5519a-59cc-4de6-af9e-a2aee320e1b3
 
 ## 보안 규칙 (2026-09-04 사고 후 확정)
 - OpenDART 키는 코드·리포에 절대 넣지 않는다. `OPENDART_API_KEY` 환경변수 또는 `~/.opendart_key`(chmod 600)만.

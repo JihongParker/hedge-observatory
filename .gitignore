@@ -3,3 +3,6 @@ dist/
 .env
 **/opendart_key*
 *.log
+
+# generated illustration sources (WebP plates are tracked)
+site/public/scene/raw/

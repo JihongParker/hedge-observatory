@@ -1,0 +1,47 @@
+/* hilltop observatory at night. Positions are fractions of the hero box;
+   the hill line sits at 94% of the height, the city strip's waterline at 70%. */
+.night { position: absolute; inset: 0; overflow: hidden; --mx: 0; --my: 0; }
+.night img { position: absolute; display: block; user-select: none; pointer-events: none; }
+.sc-fx { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.nt-plx { position: absolute; inset: 0; transition: translate 1.1s cubic-bezier(0.2, 0.8, 0.2, 1); will-change: translate; }
+.nt-plx-1 { translate: calc(var(--mx) * -8px) calc(var(--my) * -5px); }
+.nt-plx-2 { translate: calc(var(--mx) * 10px) calc(var(--my) * 4px); }
+.nt-plx-3 { translate: calc(var(--mx) * 26px) calc(var(--my) * 9px); }
+
+.nt-sky { top: -4%; left: -6%; width: 112%; height: 108%; object-fit: cover; animation: nt-pan 80s ease-in-out infinite alternate; }
+@keyframes nt-pan { from { translate: 0 0; } to { translate: -3% 1%; } }
+
+.nt-moon { position: absolute; right: 14%; top: 12%; width: 54px; height: 54px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #fff8e6 0 40%, #e8e2cf 70%, #d3cfc0 100%);
+  box-shadow: 0 0 40px 14px rgb(255 244 214 / 0.18), 0 0 120px 40px rgb(255 244 214 / 0.08); }
+
+.nt-cloud { opacity: 0.85; animation: nt-drift linear infinite; }
+.nt-cloud-a { top: 18%; width: 24%; animation-duration: 110s; animation-delay: -40s; }
+.nt-cloud-b { top: 34%; width: 13%; animation-duration: 150s; animation-delay: -100s; opacity: 0.7; }
+@keyframes nt-drift { from { left: -28%; } to { left: 106%; } }
+
+.nt-city { left: 22%; width: 60%; bottom: 30%; opacity: 0.95; }
+.nt-water { position: absolute; left: 0; right: 0; top: 70%; height: 10%;
+  background: linear-gradient(180deg, rgb(28 40 80 / 0.55), rgb(14 22 48 / 0.2)); }
+.nt-hill { left: -6%; width: 112%; bottom: -2%; }
+.nt-dome-wrap { position: absolute; left: 66%; bottom: 10.5%; width: 8%; aspect-ratio: 700 / 1060; }
+.night .nt-dome { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* slit and window glow, anchored to fractions of the dome plate */
+.nt-slit { position: absolute; left: 62%; top: 34%; width: 26%; height: 14%; margin: -7% 0 0 -13%; border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 200 110 / 0.55) 0 20%, rgb(255 180 90 / 0.2) 45%, rgb(255 180 90 / 0) 70%); animation: nt-glow 4s ease-in-out infinite; }
+.nt-window { position: absolute; left: 75%; top: 67%; width: 20%; height: 10%; margin: -5% 0 0 -10%; border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 200 110 / 0.5) 0 20%, rgb(255 180 90 / 0) 70%); animation: nt-glow 2.6s ease-in-out infinite -1s; }
+@keyframes nt-glow { 0%, 100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+.nt-pines { right: 4%; width: 11%; bottom: 6%; }
+
+@media (max-width: 760px) {
+  .nt-cloud-a { width: 44%; } .nt-cloud-b { width: 26%; }
+  .nt-city { left: -5%; width: 110%; }
+  .nt-dome-wrap { left: 58%; width: 17%; }
+  .nt-pines { width: 22%; right: -2%; }
+  .nt-moon { width: 40px; height: 40px; right: 10%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nt-sky, .nt-cloud, .nt-slit, .nt-window { animation: none; }
+  .nt-plx { transition: none; translate: 0 0; }
+}

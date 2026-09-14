@@ -42,7 +42,7 @@ export default function Pipeline() {
             이 사이트를 열어 보는 데에는 AI도 서버 계산도 들지 않습니다.</p>
           <ul>
             <li><span className="mono">표 만들 때</span><span>문서당 한 번</span></li>
-            <li><span className="mono">새 공시 감시</span><span>목록만 확인 — AI 없음</span></li>
+            <li><span className="mono">새 공시 감시</span><span>목록만 확인, AI 없음</span></li>
             <li><span className="mono">사이트 열람</span><span>완성된 표를 읽기만 합니다</span></li>
           </ul>
         </div>

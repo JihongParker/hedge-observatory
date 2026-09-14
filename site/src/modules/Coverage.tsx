@@ -40,7 +40,7 @@ export default function Coverage() {
         아래 표의 한 줄이 회사 하나입니다.</p>
       <div className="cov-cockpit">
         <aside className="cov-rail">
-          <span className="sec-label">Filter</span>
+          <span className="sec-label">거르기</span>
           <label className="param-row">
             <span className="param-sym"><span className="sym">A</span><sub>min</sub></span>
             <span className="param-desc">회사 크기(총자산)의 하한선입니다. 움직이면 표가 바로 걸러집니다.</span>
@@ -52,7 +52,7 @@ export default function Coverage() {
           <input className="cov-search" type="search" placeholder="회사 이름 검색"
             value={q} onChange={(e) => setQ(e.target.value)} />
           <button className="param-reset" onClick={() => { setMinAssets(0); setQ('') }}>초기화</button>
-          <span className="sec-label">How we decide</span>
+          <span className="sec-label">판정 기준</span>
           <p className="cov-rule">보고서의 결정 문장 하나로 판정합니다. S-Oil 보고서에는 위험회피라는 말이
             12번 나오지만 전부 상투적 문구였고, "적용하지 않는다"는 한 문장이 결론이었습니다.
             단어 개수를 세면 이 회사를 반대로 분류하게 됩니다.</p>
@@ -71,7 +71,7 @@ export default function Coverage() {
                 {rows.slice(0, SHOW).map((r) => (
                   <tr key={r.name}>
                     <td>{r.name}</td>
-                    <td className="num mono">{r.assets_tn ? `${r.assets_tn.toFixed(1)}조` : '—'}</td>
+                    <td className="num mono">{r.assets_tn ? `${r.assets_tn.toFixed(1)}조` : '없음'}</td>
                     <td>{r.applied === true ? <span className="cov-pill on">씀</span>
                       : r.applied === false ? <span className="cov-pill on">안 씀</span>
                       : <span className="cov-pill">미판정</span>}</td>

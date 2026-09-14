@@ -9,9 +9,9 @@ const ATT = [
   { label: '환경정보 의무 · 파생상품 사용', est: -0.9, lo: -6.9, hi: 4.9 },
 ]
 const NOTES = [
-  { label: '바로 비교 가능', n: 1, tip: '1곳 — S-Oil, 사람이 검산까지 끝냈습니다' },
-  { label: '표 모양이 제각각', n: 10, tip: '10곳 — 표 형식이 2가지 이상 섞여 있습니다' },
-  { label: '표가 없음', n: 2, tip: '2곳 — 주석에 숫자표가 없습니다' },
+  { label: '바로 비교 가능', n: 1, tip: '1곳. S-Oil, 사람이 검산까지 끝냈습니다' },
+  { label: '표 모양이 제각각', n: 10, tip: '10곳. 표 형식이 두 가지 이상 섞여 있습니다' },
+  { label: '표가 없음', n: 2, tip: '2곳. 주석에 숫자표가 없습니다' },
 ]
 const X = (v: number) => 165 + (v + 12) * 16.5
 
@@ -29,12 +29,12 @@ export default function Evidence() {
       <p className="ev-lead">공시 의무가 생기면 회사가 위험 대비를 늘릴 것 같지만, 380개사의 9년치 기록에서는 그런 변화가 보이지 않았습니다. 아래 네 경우 모두에서 그렇습니다.</p>
       <div className="ev-cockpit">
         <aside className="ev-rail">
-          <span className="sec-label">How to read</span>
+          <span className="sec-label">읽는 법</span>
           <dl>
             <dt>질문</dt><dd>공시 의무가 생기면 회사가 환율·유가 위험 대비를 늘릴까요?</dd>
             <dt>재는 법</dt><dd>의무가 먼저 적용된 회사와 아직인 회사를 같은 기간에 비교합니다.</dd>
             <dt>가로 막대</dt><dd>통계적으로 가능한 범위입니다. 막대가 0을 지나면 "늘었다고도 줄었다고도 말할 수 없음"입니다.</dd>
-            <dt>왜 의미 있나</dt><dd>"효과 없음"을 정밀하게 재는 것도 발견입니다. 의무의 실효를 묻는 근거가 됩니다.</dd>
+            <dt>왜 의미 있나</dt><dd>효과가 없다는 사실을 정밀하게 재는 것도 발견입니다. 의무가 실제로 작동하는지 묻는 근거가 됩니다.</dd>
           </dl>
         </aside>
         <div className="ev-body">
@@ -49,7 +49,7 @@ export default function Evidence() {
           </div>
           <div className="ev-grid">
             <figure className="ev-card" data-tour="att">
-              <figcaption>의무 도입 뒤 달라진 정도 — 네 경우 모두 막대가 0을 지납니다 (%p)</figcaption>
+              <figcaption>의무 도입 뒤 달라진 정도. 네 경우 모두 막대가 0을 지납니다 (%p)</figcaption>
               <svg viewBox="0 0 520 190" role="img" aria-label="네 추정치의 점-구간, 전부 0 포함">
                 <line x1={X(0)} y1="10" x2={X(0)} y2="158" stroke="var(--line)" strokeWidth="1.4" />
                 <text x={X(0)} y="174" textAnchor="middle" fontSize="10" fill="var(--muted)">0 = 변화 없음</text>
@@ -70,7 +70,7 @@ export default function Evidence() {
               </svg>
             </figure>
             <figure className="ev-card" data-tour="notes">
-              <figcaption>시범으로 읽은 13곳의 표 상태 — 왜 이 작업이 필요한지 보여 줍니다</figcaption>
+              <figcaption>시범으로 읽은 13곳의 표 상태. 이 작업이 필요한 이유입니다</figcaption>
               <svg viewBox="0 0 520 190" role="img" aria-label="정합 1, 이질 10, 미소재 2">
                 {NOTES.map((r, i) => {
                   const y = 26 + i * 50

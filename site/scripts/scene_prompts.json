@@ -1,0 +1,41 @@
+{
+  "model": "grok-imagine-image-2.0",
+  "style": "flat vector illustration, night palette (deep navy, slate blue, muted violet, one warm amber accent), clean simple shapes, subtle grain, no outlines, no text, no watermark, no people. The object is fully isolated and centered on a SOLID FLAT pure green background (#00FF00) with nothing else",
+  "layers": [
+    {
+      "file": "dome",
+      "prompt": "a small hilltop astronomical observatory: a round white dome with its slit open and warm amber light glowing from inside, on a short cylindrical stone building with one lit window and a little door, side view",
+      "width": 700
+    },
+    {
+      "file": "hill",
+      "prompt": "a wide dark rolling hill silhouette in deep slate blue with a few small pine trees on the ridge, very wide horizontal composition, soft rounded shape",
+      "width": 1800
+    },
+    {
+      "file": "city",
+      "prompt": "ONLY the buildings of a distant harbour city skyline at night: low buildings, two port cranes, a lighthouse, many tiny lit windows in warm amber; absolutely no sky, no water, no ground, no background rectangle behind them, the silhouettes float directly on the flat green background; very wide and low horizontal strip",
+      "width": 1800
+    },
+    {
+      "file": "pines",
+      "prompt": "a cluster of three dark pine trees of different heights, silhouettes in deep navy with slightly lighter edges, front view",
+      "width": 520
+    },
+    {
+      "file": "grass_night",
+      "prompt": "a wide low clump of tall grass and reeds at night, dark teal and slate with a few pale seed heads, front view, wide horizontal composition",
+      "width": 1200
+    },
+    {
+      "file": "cloud_night_a",
+      "prompt": "a single soft wide night cloud, dark slate blue with a faint lighter top edge lit by the moon, simple shape",
+      "width": 560
+    },
+    {
+      "file": "cloud_night_b",
+      "prompt": "a single small soft night cloud, dark slate blue, simple rounded shape",
+      "width": 360
+    }
+  ]
+}

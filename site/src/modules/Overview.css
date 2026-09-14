@@ -1,7 +1,7 @@
 /* 랜딩. 첫 화면은 코너 확장 진입, 카드는 순차 settle. */
 .ov { display: flex; flex-direction: column; gap: 40px; }
 
-.ov-hero { position: relative; min-height: 470px; display: flex; align-items: flex-end;
+.ov-hero { position: relative; min-height: 560px; display: flex; align-items: flex-end;
   margin: calc(-1 * var(--pad-y)) calc(-1 * var(--pad-x)) 0; padding: 48px var(--pad-x) 52px;
   overflow: hidden; color: var(--sc-text);
   background: linear-gradient(180deg, var(--sc-sky-top) 0%, var(--sc-sky-mid) 58%, var(--sc-sky-low) 100%);

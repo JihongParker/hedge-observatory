@@ -1,5 +1,5 @@
 import panel from '../data/panel.json'
-import ScanField from '../components/ScanField'
+import SceneNight from '../components/SceneNight'
 import FlowDiagram from '../components/FlowDiagram'
 import Carousel from '../components/Carousel'
 import './Overview.css'
@@ -9,40 +9,40 @@ export default function Overview({ go, startTour }: { go: (id: string) => void; 
   return (
     <div className="ov">
       <section className="ov-hero">
-        <div className="ov-scene" aria-hidden="true"><ScanField /></div>
+        <div className="ov-scene" aria-hidden="true"><SceneNight /></div>
         <div className="ov-hero-copy">
-          <span className="sec-label ov-cap">Korean corporate hedging observatory</span>
+          <span className="sec-label ov-cap">한국 상장사 헤지 관측소</span>
           <h1 className="ov-title">
             회사들이 환율과 유가에<br />어떻게 대비하는지,<br />공시로 <em>읽어냅니다</em>
           </h1>
           <p className="ov-lede">
             상장사 사업보고서에는 회사가 위험에 대비해 맺은 금융계약을 적는 <b>파생상품 주석</b>이 있습니다.
             이 관측소는 2,391곳의 그 글을 컴퓨터로 읽어 <b>누구나 볼 수 있는 하나의 표</b>로 만듭니다.
-            뒤의 점 하나가 회사 하나, 지나가는 빛줄기가 "읽는 중"이라는 뜻입니다.
+            하늘의 별 하나가 회사 하나이고, 밝은 별은 이미 읽은 곳입니다.
           </p>
           <div className="ov-cta">
             <button className="ov-btn-primary" onClick={startTour}>둘러보기 시작</button>
             <button className="ov-btn-ghost" onClick={() => go('evidence')}>확인된 사실 보기</button>
           </div>
         </div>
-        <span className="ov-follow mono" aria-hidden="true">Follow the chain ↓</span>
+        <span className="ov-follow mono" aria-hidden="true">아래로 이어집니다 ↓</span>
       </section>
 
       <section className="ov-sec">
-        <span className="sec-label">Process</span>
+        <span className="sec-label">만드는 순서</span>
         <h2>이 표가 만들어지는 다섯 걸음</h2>
         <FlowDiagram />
       </section>
 
       <section className="ov-sec">
-        <span className="sec-label">Screens</span>
+        <span className="sec-label">화면</span>
         <h2>네 개의 화면</h2>
         <div className="ov-cards">
           {[
-            { id: 'evidence', name: '확인된 사실', desc: '공시 의무가 생기면 회사가 위험 대비를 늘릴까요? 380개사의 9년치를 비교했더니, 달라진 것이 없었습니다.', stat: '변화 ±6%p 안 — 정밀한 무변화' },
+            { id: 'evidence', name: '확인된 사실', desc: '공시 의무가 생기면 회사가 위험 대비를 늘릴까요? 380개사의 9년치를 비교했더니, 달라진 것이 없었습니다.', stat: '변화 ±6%p 안, 달라진 것 없음' },
             { id: 'coverage', name: '읽은 범위', desc: `${panel.n}곳의 최신 사업보고서를 읽었습니다. 위험회피 회계를 쓰는지는 문서의 결정 문장 하나로 판정합니다.`, stat: `판정 성공 ${panel.agg.applied + panel.agg.not_applied} / ${panel.n}` },
             { id: 'pipeline', name: '만드는 과정', desc: '1년에 한 번 보고서를 읽어 표를 갱신합니다. 사람 손은 검수에만 듭니다.', stat: '4단계 중 2단계 완성' },
-            { id: 'kssb', name: '기후공시 관측', desc: '2027년부터 큰 회사들은 기후 정보를 의무로 공시합니다. 그때 행동이 정말 바뀌는지 이 표로 지켜봅니다.', stat: '관측 시점 2030–31' },
+            { id: 'kssb', name: '기후공시 관측', desc: '2027년부터 큰 회사들은 기후 정보를 의무로 공시합니다. 그때 행동이 정말 바뀌는지 이 표로 지켜봅니다.', stat: '관측 시점 2030~31년' },
           ].map((m) => (
             <button key={m.id} className="ov-card" onClick={() => go(m.id)}>
               <span className="ov-card-name">{m.name}</span>
@@ -54,18 +54,18 @@ export default function Overview({ go, startTour }: { go: (id: string) => void; 
       </section>
 
       <section className="ov-sec">
-        <span className="sec-label">Numbers</span>
+        <span className="sec-label">숫자</span>
         <h2>지금까지의 숫자</h2>
         <div className="ov-proof">
           <div className="ov-proof-item"><b className="mono">2,391</b><span>읽을 대상 회사 (코스피 상장 심사 통과)</span></div>
           <div className="ov-proof-item"><b className="mono">{panel.n.toLocaleString()}</b><span>최신 사업보고서를 읽은 회사 ({panel.as_of} 배치)</span></div>
           <div className="ov-proof-item"><b className="mono">{panel.agg.applied + panel.agg.not_applied} / {panel.n}</b><span>결정 문장으로 판정 성공</span></div>
-          <div className="ov-proof-item"><b className="mono">{panel.tables.comparable} / {panel.n}</b><span>표끼리 바로 비교되는 회사 — 나머지를 맞추는 것이 본론입니다</span></div>
+          <div className="ov-proof-item"><b className="mono">{panel.tables.comparable} / {panel.n}</b><span>표끼리 바로 비교되는 회사. 나머지를 맞추는 것이 본론입니다</span></div>
         </div>
       </section>
 
       <section className="ov-sec">
-        <span className="sec-label">Live miniature</span>
+        <span className="sec-label">미리보기</span>
         <h2>화면 미리보기</h2>
         <Carousel slides={[
           { key: 'att', title: '변화 없음', body: (
@@ -96,7 +96,7 @@ export default function Overview({ go, startTour }: { go: (id: string) => void; 
           )},
           { key: 'kssb', title: '관측 창', body: (
             <div className="ov-mini-kssb">
-              {[['FY2027','의무 시작'],['FY2028','대상 확대'],['2030','검증 의무'],['2030–31','변화 관측']].map((t,i)=>(
+              {[['FY2027','의무 시작'],['FY2028','대상 확대'],['2030','검증 의무'],['2030~31','변화 관측']].map((t,i)=>(
                 <div key={t[0]} className={i===3?'on':''}><span className="mono">{t[0]}</span><span>{t[1]}</span></div>
               ))}
             </div>

@@ -15,13 +15,26 @@ export default function SceneNight() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const el = ref.current
     if (!el) return
+    // the pointer sets a target; a rAF loop eases the depth groups toward it
+    // with whole-pixel transforms (no CSS transition restarts, no re-raster)
+    const groups = Array.from(el.querySelectorAll<HTMLElement>('.nt-plx'))
+    const depth = [[-8, -5], [10, 4], [26, 9]]
+    let tx = 0, ty = 0, cx = 0, cy = 0, praf = 0
+    const ease = () => {
+      praf = 0
+      cx += (tx - cx) * 0.06
+      cy += (ty - cy) * 0.06
+      groups.forEach((g, i) => { const [kx, ky] = depth[i] ?? [0, 0]; g.style.transform = `translate3d(${Math.round(cx * kx)}px, ${Math.round(cy * ky)}px, 0)` })
+      if (Math.abs(tx - cx) > 0.002 || Math.abs(ty - cy) > 0.002) praf = requestAnimationFrame(ease)
+    }
     const onMove = (e: PointerEvent) => {
       if (e.pointerType === 'touch') return
-      el.style.setProperty('--mx', String((e.clientX / window.innerWidth) * 2 - 1))
-      el.style.setProperty('--my', String((e.clientY / window.innerHeight) * 2 - 1))
+      tx = (e.clientX / window.innerWidth) * 2 - 1
+      ty = (e.clientY / window.innerHeight) * 2 - 1
+      if (!praf) praf = requestAnimationFrame(ease)
     }
     window.addEventListener('pointermove', onMove, { passive: true })
-    return () => window.removeEventListener('pointermove', onMove)
+    return () => { window.removeEventListener('pointermove', onMove); cancelAnimationFrame(praf) }
   }, [])
   return (
     <div className="night" ref={ref} aria-hidden>
